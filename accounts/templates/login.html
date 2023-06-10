@@ -1,45 +1,57 @@
-<!DOCTYPE>
+{% load static %}
+<!DOCTYPE html>
 <html>
-<head>
-<title> Vertical Menu </title>
-<meta name ="viewport" content ="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src ="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="row">
-<div class="col-3">
-<nav class ="navbar bg-light">
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#colp">
-<span class="navbar-toggler-icon" style="background-color:darkblue;"></span>
-</button>
-<div class="collapse navbar-collapse" id="colp">
-<ul class ="nav navbar-nav">
-<li class ="nav-item">
-<a class ="nav-link" href="#"> Home </a>
-</li>
-<li class ="nav-item">
-<a class ="nav-link" href="#"> Services </a>
-</li>
-<li class ="nav-item">
-<a class ="nav-link" href="#"> Contact </a>
-</li>
-<li class ="nav-item">
-<a class ="nav-link" href="#"> Blogs </a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-<div class="col-9">
-<div class="container">
-The Web Content in detail.
-</div>
-<div class ="container">
-<p> The vertical menu can place the left or right side of the web pages. <br> But the default vertical menu placed on the left side. </P>
-</div>
-</div>
-</div>
-</body>
+	<head>
+		<title>Login::automationsManager</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'login.css' %}">
+
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'bootstrap/jquery/jquery.min.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'bootstrap/vendor/fontawesome-free/css/all.min.css' %}">
+		
+		<style>
+			body{
+				background: #3AAFA9;
+				font-family: Calibri;
+			}
+		  </style>
+	</head>
+	
+	
+	<body>
+		<div class = "container">
+			<form action="/login" method="post" name="Login_Form"  autocomplete="off">   
+				{% csrf_token %}    
+				<h3 class="form-signin-heading">Automations Management Portal</h3>
+				  <hr class="colorgraph"><br>
+					{% if message != "" %}
+						<center><span style="color:red;">{{message}}</span></center>
+					{% endif %}
+				  
+				  <div class="form-group input-group col-sm-12">
+					<div class="input-group-addon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+							<input type="text" class="form-control col-sm-3" style="width:250px" id="username" name="username" placeholder="Enter Username" required>
+						</div>
+                        
+						<div class="form-group input-group col-sm-12">
+							<div class="input-group-addon">
+								<i class="fa fa-lock" aria-hidden="true"></i>
+							</div>
+							<input type="password" class="form-control col-sm-3" style="width:250px"  id="password" name="password" placeholder="Enter Password" required>
+						</div>
+
+                        <p style="padding-left:180px"><a style="text-decoration:none;color:black" href="/forgotPassword">Forgot Password?</a></p>
+
+                        <button class="btn btn-lg btn-primary btn-block"  style="width:280px"  name="Submit" value="Login" type="Submit">Login &nbsp;<i class="fa fa-arrow-circle-right" style="color:white"></i></button> 	
+				</div>
+                
+                      
+			</form>			
+		</div>
+	</body>
 </html>
