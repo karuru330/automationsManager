@@ -1,4 +1,4 @@
-"""AutomationsManager URL Configuration
+"""LMS URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
-    path('', include('automation_devops.urls'))
+    path('automation_devops', views.automation_devops),
+    path('automation_devops/<str:environment>', views.tracks),
+    path('automation_devops/<str:environment>/add_track', views.add_track),
+    path('automation_devops/<str:environment>/<str:track>', views.pipelines)
 ]

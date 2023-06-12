@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <br><br>
+    <p><a style="text-decoration:none;color:black;" href="/">Home</a> &nbsp; / &nbsp; <a style="text-decoration:none;color:black;" href="/automation_devops">Automation DevOps</a> &nbsp; / &nbsp; <a href="/automation_devops/{{environment}}" style="text-decoration:none;color:black;">{{environment}}</a></p>
+	<h3 style="color:black">Add Track</h3>
+	<br>
+	<form action='/automation_devops/{{environment}}/add_track' method='POST' enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="name">Track Name</label>
+			<input type="text" class="form-control" name="track-name" placeholder="Enter track name" style="width:40%" required>
+		</div>
+		<button type="reset" class="btn btn-danger" >Reset</button>
+		<button type="submit" class="btn btn-primary" >Save</button>
+	</form>
+</div>
+{% endblock %}

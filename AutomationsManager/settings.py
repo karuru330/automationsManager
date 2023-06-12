@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'crispy_forms'
+    'crispy_forms',
+    'automation_devops'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +64,7 @@ ROOT_URLCONF = 'AutomationsManager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "automation_devops/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,11 +85,11 @@ WSGI_APPLICATION = 'AutomationsManager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'automationsmanager',
-		'USER':'root',
-		'PASSWORD':'K@ruru123',
-		'HOST':'localhost',
+        'ENGINE': os.environ.get("DB_URL"),
+        'NAME': os.environ.get("DB_NAME"),
+		'USER':os.environ.get("DB_USER"),
+		'PASSWORD':os.environ.get("DB_PASSWORD"),
+		'HOST':os.environ.get("DB_HOST"),
     }
 }
 

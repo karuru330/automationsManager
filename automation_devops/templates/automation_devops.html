@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	
+    <br><br>
+    <p><a style="text-decoration:none;color:black;" href="/">Home</a> &nbsp; / &nbsp; <a style="text-decoration:none;color:black;" href="/automation_devops">Automation DevOps</a></p>
+	
+    <div class="row">
+
+        <div class="col-sm-6">
+
+           <div class="panel panel-default">
+                <div class="panel-heading"><b>Pre-PROD Environment</b></div>
+                    <div class="panel-body">
+                    <p class="card-text">Using this feature you can create, modify and execute pipelines of pre-prod environment.<br></p>
+                    <a href="/automation_devops/preprod" class="btn btn-primary" style="float:right">Click Here  &nbsp; <i class="fa fa-arrow-circle-right" style="font-size:20px;"></i></a>
+                      
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="panel panel-default">
+                <div class="panel-heading"><b>PROD Environment</b></div>
+                    <div class="panel-body">
+                    <p class="card-text">Using this feature you can create, modify and execute pipelines of prod environment.<br></p>
+                    <a href="/automation_devops/prod" class="btn btn-primary" style="float:right">Click Here  &nbsp; <i class="fa fa-arrow-circle-right" style="font-size:20px;"></i></a>
+                      
+                </div>
+            </div>
+        </div>
+
+        
+      
+    </div>
+</div>
+
+{% endblock %}
